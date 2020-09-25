@@ -14,19 +14,19 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.use((req, res, next) => {
+app.use((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Change later to only allow our server
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
 
-app.get('/api', (req, res, next) => {
+app.get('/api', (req, res) => {
     res.send('API is Working!')
 });
 
 
-app.post('/api/email', (req, res, next) => {
+app.post('/api/email', (req, res) => {
 
     console.log(req.body);
 
@@ -55,7 +55,7 @@ app.post('/api/email', (req, res, next) => {
 
     });
 });
-
+// let port = process.env.PORT || 3000;
 
 app.listen(4000, '0.0.0.0');
 
